@@ -8,10 +8,15 @@ Builder.load_file('frontend.kv')
 
 class CameraScreen(Screen):
     def start(self):
-        pass
+        self.ids.camera.play = True  # root ссылается на текущий обьект экземпляра
+        self.ids.camera_button.text = "Stop"
+        self.ids.camera_button.texture = self.ids.camera._camera.texture
+
 
     def stop(self):
-        pass
+        self.ids.camera.play = False
+        self.ids.camera_button.text = "Start"
+        self.ids.camera.texture = None
 
     def capture(self):
         pass
